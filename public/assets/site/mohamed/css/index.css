@@ -1,0 +1,175 @@
+    /* Make the image fully responsive */
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    height: 40px;
+    width: 40px;
+    outline: black;
+    background-size: 100%, 100%;
+}
+    .carousel .carousel-control-prev-icon {
+        /* change fill="currentColor" to %23fff to make it white  */
+        background-image: url('https://cdn.jsdelivr.net/npm/bootstrap-icons/icons/arrow-left-circle.svg');
+    }
+
+    .carousel .carousel-control-next-icon {
+        /* change fill="currentColor" to %23fff to make it white  */
+        background-image: url('https://cdn.jsdelivr.net/npm/bootstrap-icons/icons/arrow-right-circle.svg');
+    }
+
+body{
+    overflow-x:hidden !important;
+    background:whitesmoke;
+}
+.text_how_to_use{
+    padding-bottom: 14px;
+    border-bottom:solid #007bff 4px ;
+    width:200px
+}
+.card_header_redeny{
+    color:#007bff;
+    font-size:32px;
+    font-weight: bolder;
+    border: solid #007bff 4px;
+    border-radius: 50%;
+    width:15%;
+    margin-bottom: 30px;
+}
+.card_redeny{
+    border:none;
+    background:white;
+}
+.card_redo{
+    display:inline-block;
+    background:white;
+
+}
+.card_redo .card-body img{
+    width:200px;
+    height:200px
+}
+.circle {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    padding-bottom: 40px;
+    background: #fff;
+    border: 2px solid #007bff;
+    color: #007bff;
+    text-align: center;
+    font: 32px Arial, sans-serif;
+    position: relative;
+    bottom: 40px;
+    font-weight: bolder
+}
+.card{
+    display:inline-block;
+}
+.redo_pricing_header{
+    width:100%;
+    background: #007bff;
+    height:80px;
+    color:white;
+    font-weight:normal;
+    font-size:30px;
+    -moz-border-radius-topleft: 20px
+}
+
+.redo_pricing_img{
+    height:200px;
+    width:200px;
+}
+.redo_pricing_title{
+    width:300px;
+    font-weight:bolder;
+    color:#007bff;
+}
+    /* small adjusts, don't necessaries to functioning this filter, this is something visual */
+    .btn {
+        margin-bottom:3px;
+    }
+    .btn:hover{
+        cursor:pointer;
+    }
+    .btn-outline-primary:focus {
+        background-color:#007bff;
+        color:#fff;
+    }
+
+    .Portfolio {
+        position: relative;
+        margin: 5px;
+        border: 2px solid black;
+        float: left;
+        width: 267px;
+        transition-duration: 0.4s;
+        border-radius: 5px;
+        animation: winanim 0.5s ;
+        -webkit-backface-visibility:visible;
+        backface-visibility:visible;
+        box-shadow:0 3px 5px -1px rgba(0,0,0,.2),0 5px 8px 0 rgba(0,0,0,.14),0 1px 14px 0 rgba(0,0,0,.12)
+    }
+
+    .Portfolio:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+    }
+
+    .Portfolio img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px
+    }
+
+    .desc {
+        padding: 5px;
+        text-align: center;
+        font-size: 90%;
+        background:#007bff;
+        color:white
+    }
+
+    .nav {
+        padding:20px;
+        margin-left:340px;
+        margin-top:-30px;
+    }
+
+    .nav li a {
+        margin:5px;
+        padding: 15px 50px;
+        font-size:16px;
+        color:white;
+        background: #007bff;
+        transition-duration: 0.4s;
+    }
+    .nav a:hover {
+        background:#333;
+    }
+    .nav .active {
+        background-color:white !important;
+        color:#007bff;
+    }
+
+    @keyframes winanim {
+        0%{opacity:0;transform:scale3d(.3,.3,.3)}
+        50%{opacity:1}
+
+    }
+.filter_cart_header{
+    font-size:12px;
+    border:none
+}
+/*region categories*/
+/*.categories{
+  background:white;
+    color : #007bff;
+}
+.categories :hover{
+    background : #007bff;
+    border-color:#007bff ;
+    color : white;
+}*/
+/*endregion*/

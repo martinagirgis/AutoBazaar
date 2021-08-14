@@ -1,0 +1,441 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+html, body{
+    height: 100%;
+    width: 100%;
+    font-family: "Poppins", sans serif;
+    color: #222;
+    overflow-x:hidden;
+}
+
+/*Navbar*/
+
+.navbar{
+    padding: .8rem;
+
+}
+.navbar-toggler{
+    background-color: black;
+    opacity: 10%;
+}
+.navbar-custom {
+    background-color:white;
+
+    color:black;
+    border-radius:0;
+}
+
+.nav-link:hover, .nav-link:focus, .nav-link:active{
+    color: #6648b1;
+    border-bottom: 5px solid #6648b1 ;
+
+}
+
+
+.navbar-nav li{
+    padding-right: 20px;
+}
+.nav-link{
+    font-size: 1.1em !important;
+    color:black;
+}
+
+
+/*Button style*/
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+
+    color: #000;
+    background-color: #000;
+    background-image: none;
+    border-color: #fff; /*set the color you want here*/
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .open>.dropdown-toggle.btn-outline-primary{
+
+    color: #fff;
+    background-color: #000;
+    border-color: #fff;
+
+}
+
+
+.btn-outline-primary{
+    /* border-color: #6648b1;*/
+    border-color: black;
+    color:  black;
+}
+
+.btn-outline-secondary{
+    border-color: #6648b1;
+    border-color: black;
+    color:  black;
+}
+
+.btn-outline-secondary:hover, .btn-outline-secondary:focus,.btn-outline-secondary:active{
+
+    color: #fff;
+    background-color: #000;
+    border-color: #fff;
+
+}
+
+/*Header*/
+.content-section{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.content-section-heading h2 {
+    font-size: 3rem;
+}
+
+.content-section-heading h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+
+/* Style the filter buttons */
+.btn {
+    outline: none;
+    padding: 12px 16px;
+    background-color: white;
+    cursor: pointer;
+}
+
+
+/* Add a grey background color on mouse-over */
+.btn:hover {
+    background-color: #ddd;
+}
+
+
+
+
+.buttons{
+
+    padding: 2px 60px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+
+}
+
+.btn-primary-1{
+    background-color: #6648b1;
+    color: white;
+    border: none;
+}
+
+/*Content*/
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border: none;
+    font-size: 15px;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: 0.3s;
+
+
+}
+a:hover i,
+a,
+i {
+    text-decoration: none !important;
+
+}
+
+.card-title{
+    color: #6648b1;
+    margin-top: 10px;
+}
+
+.card-text{
+    color: black;
+}
+.container {
+
+    left: -999em;
+}
+
+
+/* Add a dark background color to the active button */
+.btn.active {
+    /*  background-color: #666;*/
+    color: white;
+    background-color: #6648b1;
+    margin:10px;
+    border: none;
+
+}
+
+.card-columns {
+    column-count: 2;
+}
+
+.container {
+    overflow: hidden;
+}
+
+.card-body {
+    padding-top: 0 !important;
+}
+/*Footer*/
+.social a {
+    font-size: 4.5em;
+    padding: 3rem;
+}
+.fa-youtube{
+    color:#bb0000;
+}
+.fa-behance{
+    color:#000;
+}
+.fa-linkedin{
+    color:#3b5998;
+}
+.fa-instagram{
+    color: #517fa4;
+}
+
+.fa-youtube:hover,
+.fa-behance:hover,
+.fa-linkedin:hover,
+.fa-instagram:hover{
+    color:#d5d5d5;
+}
+
+footer {
+    background-color: #3f3f3f;
+    color: #ffff;
+    padding-top: 2rem;
+}
+
+
+.btn-primary{
+    color: white;
+    background-color: #6648b1;
+    border: none;
+}
+
+hr.light{
+    border-top: 1px solid #d5d5d5;
+    width: 75%;
+    margin-top: .8rem;
+    margin-bottom: 1rem;
+}
+
+footer a{
+    color: #ffff;
+}
+
+hr.light-100{
+    border-top: 1px solid #d5d5d5;
+    width: 100%;
+    margin-top: .8rem;
+    margin-bottom: 1rem;
+}
+
+
+.filterDiv {
+    display: none !important; /* Hidden by default */
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+
+    float: left;
+    display: block !important;
+    clear: both;
+}
+
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
+    .social a{
+        font-size: 4em;
+        padding:  2rem;
+    }
+}
+@media (max-width: 768px) {
+
+
+    .display-4{
+        font-size: 200% ;
+    }
+
+    .social a {
+        font-size: 2.5em;
+        padding: 1.2rem;
+    }
+
+}
+@media (max-width: 576px) {
+
+    .card-columns {
+
+
+        column-count: 1;
+    }
+
+    .social a {
+        font-size: 2em;
+        padding: .7rem;
+    }
+
+    .btn-primary-1{
+        margin-top: 10px;
+        background-color: #6648b1;
+        color: white;
+        border: none;
+    }
+
+}
+
+
+
+/*---Firefox Bug Fix --*/
+.carousel-item {
+    transition: -webkit-transform 0.5s ease;
+    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible;
+}
+@media (max-width: 767px) {
+    .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+/* medium and up screens */
+@media (min-width: 768px) {
+
+    .carousel-inner .carousel-item-end.active,
+    .carousel-inner .carousel-item-next {
+        transform: translateX(25%);
+    }
+
+    .carousel-inner .carousel-item-start.active,
+    .carousel-inner .carousel-item-prev {
+        transform: translateX(-25%);
+    }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start {
+    transform: translateX(0);
+}
+
+
+/*
+--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
+.carousel-inner img {
+    width: 100%;
+    height: 80%;
+}
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tyra D'Costa Designs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+*/
+.carousel {
+    position: relative;
+    padding-right: 20px;
+}
+.moka-body {
+    padding-top: 0 !important;
+    background: white;
+    font-weight: bolder;
+
+}
+.moka-body a {
+    padding-top: 0 !important;
+    color: black;
+    font-size:15px
+}
+.moka-body:hover,.moka-body a:hover {
+    padding-top: 0 !important;
+    background: #2771D1;
+    font-weight: bolder;
+    color: white;
+}
+
+.btn-moka{
+    background : white;
+    border: none;
+}
+.btn-primary {
+
+    background-color: #007bff;
+}
+.card-title{
+    color:#007bff;
+}
+@media only screen and (max-width: 420px) {
+    .carousel-inner img {
+        width: 100%;
+        height: 20%;
+    }
+    .carousel-control-next-icon, .carousel-control-prev-icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: no-repeat 50%/100% 100%;
+        margin-top: 500px;
+    }
+    .carousel-item{
+        padding-left: 20px;
+    }
+    #slider_1 {
+        height: 700px;
+    }
+    #Subscriptions{
+        padding-left: 30px;
+    }
+}
+.redo_pricing_header{
+    width:100%;
+    background: #007bff;
+    height:80px;
+    color:white;
+    font-weight:normal;
+    font-size:30px;
+    -moz-border-radius-topleft: 20px
+}

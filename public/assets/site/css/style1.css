@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600,700,800');
+body
+{
+	
+	font-family: 'Roboto', Helvetica, Arial, sans-serif;
+	background: #F3F3F3;
+}
+
+*
+{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+ul 
+{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+a 
+{
+ 	text-decoration: none;
+}
+
+
+nav
+{
+	
+	width: 100%;
+	position: fixed;
+	z-index: 3;
+}
+
+.maincolor
+{
+	color: #19296f !important;
+}
+
+.backgroundColor
+{
+	background-color: #19296f !important;
+}
+
+.backgroundColorSec
+{
+	background-color: #E5E5E5;
+}
+
+.secondcolor
+{
+	color: #C8C8C8;
+}
+
+.searchBtn
+{
+	background: #F3F3F3;
+	border: 1px solid #C8C8C8;
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+
+.logo
+{
+	font-family: Revalia;
+}
+
+.topnavIcon
+{
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: bold;
+	/* font-size: 22px; */
+	margin-top: 10px;
+	color: #606163;
+}
+
+.navColor
+{
+	color: #fff !important;
+}
+
+
+.sec2
+{
+	width: 85%;
+	margin: 60px auto;
+	/* text-align: center; */
+}
+
+.hsec
+{
+	font-family: Roboto;
+	font-weight: bold;
+	font-size: 18px;
+	width: max-content;
+	padding-bottom: 15px;
+	border-bottom: 3px solid #19296f;
+}
+
+.procard
+{
+	/* height: 200px; */
+	padding: 10px;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.tdropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.tdropdown-content {
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+min-width: 100px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+padding: 12px 16px;
+z-index: 1;
+}
+
+.tdropdown:hover .tdropdown-content {
+display: block;
+}
+
+/* ======================signin================ */
+.signform {
+background: #FFFFFF;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+padding: 20px;
+}
+
+.inputform{
+	background: #F6F6F6;
+box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+}
+
+
+/* COLUMNS */
+
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+  }
+  
+  .col:first-of-type { margin-left: 0; }
+  
+  /* CLEARFIX */
+  
+  .cf:before,
+  .cf:after {
+	  content: " ";
+	  display: table;
+  }
+  
+  .cf:after {
+	  clear: both;
+  }
+  
+  .cf {
+	  *zoom: 1;
+  }
+  
+  /* FORM */
+  
+  .form .plan input, .form .payment-plan input, .form .payment-type input{
+	  display: none;
+  }
+  
+  .form label{
+	  position: relative;
+	  color: #fff;
+	  background-color: #aaa;
+	  font-size: 26px;
+	  text-align: center;
+	  height: 150px;
+	  line-height: 150px;
+	  display: block;
+	  cursor: pointer;
+	  border: 3px solid transparent;
+	  -webkit-box-sizing: border-box;
+	  -moz-box-sizing: border-box;
+	  box-sizing: border-box;
+  }
+  
+  /* add Product Form */
+
+.addDropdown
+{
+	background: #FFFFFF;
+	border: 1px solid #d4d3d3;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.103);
+	border-radius: 10px;
+}
+
+.addColor
+{
+	padding: 0px;
+	margin: 0px;
+	background-color: transparent;
+	border-color: transparent;
+}
+
+.custom-file-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    /* height: calc(1.5em + .75rem + 2px); */
+    /* padding: .375rem .75rem; */
+    font-weight: 400;
+    line-height: 1.5;
+    /* color: #495057; */
+    /* background-color: #3a1717; */
+    /* border: 1px solid #2e5a86; */
+    border-radius: .25rem;
+    width: 130px;
+}
+
+/* product details */
+.sliderPoint{
+	border-radius: 100%;
+    height: 9px;
+    width: 9px;
+	background-color: #19296f;
+}
+
+.smallColor{
+	color: #525252	;
+}
+
+.wishBtn{
+	background: #19296f;
+	border: 2px solid #19296f;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 5px;
+}
+
+/* categroy Details */
+
+div.checkRadioContainer > label > input {
+	/* visibility: hidden; */
+	display: none;
+}
+
+div.checkRadioContainer > label {
+	display: block;
+	border: 2px solid #D3D3D3;
+	/* margin-bottom: -2px; */
+	cursor: pointer;
+}
+
+div.checkRadioContainer > label:hover {
+	background-color: AliceBlue;
+}
+
+.radioCheck {
+	border: 2px solid #19296f !important;
+}
+
+.catDrop {
+	border-radius: 5px;
+	border: none;
+}
+
+.steps ul li a
+{
+	height: 100% !important;
+}
