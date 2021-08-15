@@ -19,7 +19,7 @@
                 @endif
                 <h5 class="mb-5 mt-3">اضافة مدينة جديد</h5>
 
-                <form method="post" action="{{route('cities.store')}}" enctype="multipart/form-data">
+                <form method="post" action="{{route('subcategories.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">المدينة باللغة العربية</label>
@@ -39,6 +39,17 @@
                         <label for="example-text-input" class="col-sm-2 col-form-label">المدينة باللغة الكردية</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="text" id="example-text-input" name="Title_ku">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">القسم الرئيسي</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="category_id">
+                                @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->Title_ar}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     

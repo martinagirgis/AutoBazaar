@@ -17,9 +17,9 @@
                     <strong>{{ $message }}</strong>
                 </div>
                 @endif
-                <h5 class="mb-5 mt-3">اضافة مدينة جديد</h5>
+                <h5 class="mb-5 mt-3">اضافة الإضافة للمنتج جديد</h5>
 
-                <form method="post" action="{{route('cities.store')}}" enctype="multipart/form-data">
+                <form method="post" action="{{route('advandages.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">المدينة باللغة العربية</label>
@@ -39,6 +39,14 @@
                         <label for="example-text-input" class="col-sm-2 col-form-label">المدينة باللغة الكردية</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="text" id="example-text-input" name="Title_ku">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">الصورة</label>
+                        <div class="custom-file col-sm-10">
+                            <input name="image" type="file" class="custom-file-input" id="customFileLangHTML" required>
+                            <label class="custom-file-label" for="customFileLangHTML" data-browse="رفع صورة"></label>
                         </div>
                     </div>
                     

@@ -23,25 +23,27 @@
                     <strong>{{ $message }}</strong>
                 </div>
                 @endif
-                <h5 class="">المدن</h5>
+                <h5 class="">اقسام الاقسام الرئيسية</h5>
                 
                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 
                     <thead>
                     <tr>
-                        <th>المدينة باللغة العربية</th>
-                        <th>المدينة باللغة الانجليزية</th>
-                        <th>المدينة باللغة الكردية</th>
+                        <th>القسم الفرعي باللغة العربية</th>
+                        <th>القسم الفرعي باللغة الانجليزية</th>
+                        <th>القسم الفرعي باللغة الكردية</th>
+                        <th>القم الرئيسي</th>
                         <th>التحكم</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                        @foreach($cities as $city)
+                        @foreach($subcategories as $subcategory)
                         <tr>
-                        <th>{{$city->Title_ar}}</th>
-                        <th>{{$city->Title_en}}</th>
-                        <th>{{$city->Title_ku}}</th>
+                        <th>{{$subcategory->Title_ar}}</th>
+                        <th>{{$subcategory->Title_en}}</th>
+                        <th>{{$subcategory->Title_ku}}</th>
+                        <th>{{$subcategory->category->Title_ar}}</th>
                         <th> 
                             <center>
                                 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
@@ -51,8 +53,8 @@
                                             التحكم
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                            <a class="btn btn-dark col-sm-12"  href="{{route('cities.edit',['city'=>$city->id])}}">تعديل</a>
-                                            <form method="post" action="{{route('cities.destroy',['city'=>$city->id])}}">
+                                            <a class="btn btn-dark col-sm-12"  href="{{route('subcategories.edit',['subcategory'=>$subcategory->id])}}">تعديل</a>
+                                            <form method="post" action="{{route('subcategories.destroy',['subcategory'=>$subcategory->id])}}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-dark col-sm-12" >حذف</button>

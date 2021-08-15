@@ -23,25 +23,25 @@
                     <strong>{{ $message }}</strong>
                 </div>
                 @endif
-                <h5 class="">المدن</h5>
+                <h5 class="">الحالات</h5>
                 
                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 
                     <thead>
                     <tr>
-                        <th>المدينة باللغة العربية</th>
-                        <th>المدينة باللغة الانجليزية</th>
-                        <th>المدينة باللغة الكردية</th>
+                        <th>الحالة باللغة العربية</th>
+                        <th>الحالة باللغة الانجليزية</th>
+                        <th>الحالة باللغة الكردية</th>
                         <th>التحكم</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                        @foreach($cities as $city)
+                        @foreach($statuses as $status)
                         <tr>
-                        <th>{{$city->Title_ar}}</th>
-                        <th>{{$city->Title_en}}</th>
-                        <th>{{$city->Title_ku}}</th>
+                        <th>{{$status->Title_ar}}</th>
+                        <th>{{$status->Title_en}}</th>
+                        <th>{{$status->Title_ku}}</th>
                         <th> 
                             <center>
                                 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
@@ -51,8 +51,8 @@
                                             التحكم
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                            <a class="btn btn-dark col-sm-12"  href="{{route('cities.edit',['city'=>$city->id])}}">تعديل</a>
-                                            <form method="post" action="{{route('cities.destroy',['city'=>$city->id])}}">
+                                            <a class="btn btn-dark col-sm-12"  href="{{route('statuses.edit',['status'=>$status->id])}}">تعديل</a>
+                                            <form method="post" action="{{route('statuses.destroy',['status'=>$status->id])}}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-dark col-sm-12" >حذف</button>

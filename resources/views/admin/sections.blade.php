@@ -105,6 +105,17 @@
         <li>
             <a href="javascript: void(0);" class="has-arrow">
                 <i class="fas fa-exclamation-triangle"></i>
+                <span> الاختصاصات لمراكز الصيانة </span>
+            </a>
+            <ul class="sub-menu" aria-expanded="false">
+                <li><a href="{{route("specializations.index")}}">عرض الكل</a></li>
+                <li><a href="{{route("specializations.create")}}">اضافة اختصاص جديد</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript: void(0);" class="has-arrow">
+                <i class="fas fa-exclamation-triangle"></i>
                 <span> التصنيفات </span>
             </a>
             <ul class="sub-menu" aria-expanded="false">

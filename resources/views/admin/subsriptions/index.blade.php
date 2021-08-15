@@ -29,6 +29,7 @@
 
                     <thead>
                     <tr>
+                        <th>الصورة</th>
                         <th>المدينة باللغة العربية</th>
                         <th>المدينة باللغة الانجليزية</th>
                         <th>المدينة باللغة الكردية</th>
@@ -39,6 +40,9 @@
                     <tbody>
                         @foreach($cities as $city)
                         <tr>
+                            <th>
+                                <a class="btn btn-dark col-sm-12" data-toggle="modal" data-target="#advandage{{$advandage->id}}">عرض</a><br>
+                            </th>
                         <th>{{$city->Title_ar}}</th>
                         <th>{{$city->Title_en}}</th>
                         <th>{{$city->Title_ku}}</th>
@@ -63,6 +67,25 @@
                             </center>
                         </th>
                         </tr>
+                        @endforeach
+
+                        @foreach($advandages as $advandagee)
+                        <div class="modal fade" id="advandage{{$advandagee->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="advandageLabel{{$advandagee->id}}" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                <div class="modal-header backgroundColor text-white" style="border:none">
+                                    <h5 class="modal-title" style="color: black" id="advandageLabel{{$advandagee->id}}">الصورة</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body backgroundColorSec p-5">
+                                    <img width="400" height="400" src="{{asset('assets/images/advandages')}}/{{$advandagee->image}}">
+                                </div>
+                                
+                                </div>
+                            </div>
+                        </div>
                         @endforeach
                     </tbody>
                 </table>

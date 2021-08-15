@@ -17,29 +17,29 @@
                     <strong>{{ $message }}</strong>
                 </div>
                 @endif
-                <h5 class="mb-5 mt-3">تعديل مدينة {{$city->name}}</h5>
+                <h5 class="mb-5 mt-3">تعديل الحالة {{$status->Title_ar}}</h5>
 
-                <form method="post" action="{{route('cities.update',['city'=>$city->id])}}">
+                <form method="post" action="{{route('statuses.update',['status'=>$status->id])}}">
                     @csrf
                     @method('PUT')
                     <div class="form-group row">
-                        <label for="example-text-input" class="col-sm-2 col-form-label">المدينة باللغة العربية</label>
+                        <label for="example-text-input" class="col-sm-2 col-form-label">الحالة باللغة العربية</label>
                         <div class="col-sm-10">
-                            <input class="form-control" value="{{$city->Title_ar}}" name="Title_ar" type="text" id="example-text-input">
+                            <input class="form-control" value="{{$status->Title_ar}}" name="Title_ar" type="text" id="example-text-input">
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="example-text-input" class="col-sm-2 col-form-label">المدينة باللغة الانجليزية</label>
+                        <label for="example-text-input" class="col-sm-2 col-form-label">الحالة باللغة الانجليزية</label>
                         <div class="col-sm-10">
-                            <input class="form-control" value="{{$city->Title_en}}" name="Title_en" type="text" id="example-text-input">
+                            <input class="form-control" value="{{$status->Title_en}}" name="Title_en" type="text" id="example-text-input">
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="example-text-input" class="col-sm-2 col-form-label">المدينة باللغة الكردية</label>
+                        <label for="example-text-input" class="col-sm-2 col-form-label">الحالة باللغة الكردية</label>
                         <div class="col-sm-10">
-                            <input class="form-control" value="{{$city->Title_ku}}" name="Title_ku" type="text" id="example-text-input">
+                            <input class="form-control" value="{{$status->Title_ku}}" name="Title_ku" type="text" id="example-text-input">
                         </div>
                     </div>
 

@@ -14,4 +14,9 @@ class Subcategory extends Model
         'Title_ku',
         'category_id',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo('App\models\Category','category_id');
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\models\Category;
 use App\models\Subcategory;
 use Illuminate\Http\Request;
 
@@ -15,8 +16,9 @@ class SubcategoryController extends Controller
      */
     public function index()
     {
+        $categories = Category::get();
         $subcategories = Subcategory::get();
-        return view('admin.subcategories.index',compact('subcategories'));
+        return view('admin.subcategories.index',compact('subcategories', 'categories'));
     }
 
     /**
@@ -26,7 +28,8 @@ class SubcategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.subcategories.create');
+        $categories = Category::get();
+        return view('admin.subcategories.create', compact('categories'));
     }
 
     /**
@@ -65,8 +68,9 @@ class SubcategoryController extends Controller
      */
     public function edit($id)
     {
+        $categories = Category::get();
         $subcategory = Subcategory::find($id);
-        return view('admin.subcategories.edit', compact('subcategory'));
+        return view('admin.subcategories.edit', compact('subcategory', 'categories'));
     }
 
     /**

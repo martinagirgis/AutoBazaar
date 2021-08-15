@@ -17,28 +17,47 @@
                     <strong>{{ $message }}</strong>
                 </div>
                 @endif
-                <h5 class="mb-5 mt-3">اضافة مدينة جديد</h5>
+                <h5 class="mb-5 mt-3">اضافة تصنيف جديد</h5>
 
-                <form method="post" action="{{route('cities.store')}}" enctype="multipart/form-data">
+                <form method="post" action="{{route('typeCategories.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
-                        <label for="example-text-input" class="col-sm-2 col-form-label">المدينة باللغة العربية</label>
+                        <label for="example-text-input" class="col-sm-2 col-form-label">التصنيف باللغة العربية</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="text" id="example-text-input" name="Title_ar">
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="example-text-input" class="col-sm-2 col-form-label">المدينة باللغة الانجليزية</label>
+                        <label for="example-text-input" class="col-sm-2 col-form-label">التصنيف باللغة الانجليزية</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="text" id="example-text-input" name="Title_en">
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="example-text-input" class="col-sm-2 col-form-label">المدينة باللغة الكردية</label>
+                        <label for="example-text-input" class="col-sm-2 col-form-label">التصنيف باللغة الكردية</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="text" id="example-text-input" name="Title_ku">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">نوع الاعلان</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="sell_type_id">
+                                @foreach($sellTypes as $sellType)
+                                        <option value="{{$sellType->id}}">{{$sellType->Title_ar}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">الصورة</label>
+                        <div class="custom-file col-sm-10">
+                            <input name="image" type="file" class="custom-file-input" id="customFileLangHTML" required>
+                            <label class="custom-file-label" for="customFileLangHTML" data-browse="رفع صورة"></label>
                         </div>
                     </div>
                     

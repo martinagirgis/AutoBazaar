@@ -15,4 +15,9 @@ class TypeCategory extends Model
         'image',
         'sell_type_id'
     ];
+
+    public function sellType()
+    {
+        return $this->belongsTo('App\models\SellType','sell_type_id');
+    }
 }

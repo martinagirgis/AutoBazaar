@@ -85,10 +85,10 @@ class AdvandageController extends Controller
         $advandage = Advandage::find($id);
 
         if ($request->image) {
-            unlink(public_path('assets/images/advandage') .'/' . $advandage->image);
+            unlink(public_path('assets/images/advandages') .'/' . $advandage->image);
             $fileName = $request->image->getClientOriginalName();
             $file_to_store = time() . '_' . $fileName ;
-            $request->image->move(public_path('assets/images/advandage'), $file_to_store);
+            $request->image->move(public_path('assets/images/advandages'), $file_to_store);
         }
         else{
             $file_to_store = $advandage->image;

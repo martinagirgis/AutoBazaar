@@ -26,7 +26,7 @@ class SpecializationController extends Controller
      */
     public function create()
     {
-        return view('admin.sellTypes.create');
+        return view('admin.specializations.create');
     }
 
     /**
@@ -100,7 +100,7 @@ class SpecializationController extends Controller
             'Title_ku' => $request->Title_ku,
             'image'=> $file_to_store,
         ]);
-        return redirect()->route('specialization.index')->with('success', 'The specialization has updated successfully.');
+        return redirect()->route('specializations.index')->with('success', 'The specialization has updated successfully.');
     }
 
     /**

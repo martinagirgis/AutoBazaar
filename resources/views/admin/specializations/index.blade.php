@@ -40,32 +40,33 @@
                     <tbody>
                         @foreach($specializations as $specialization)
                         <tr>
-                        <th>{{$specialization->Title_ar}}</th>
-                        <th>{{$specialization->Title_en}}</th>
-                        <th>{{$specialization->Title_ku}}</th>
-                        <th>
-                            <a class="btn btn-dark col-sm-12" data-toggle="modal" data-target="#specialization{{$specialization->id}}">show</a><br>
-                        </th>
-                        <th> 
-                            <center>
-                                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-    
-                                    <div class="btn-group" role="group">
-                                        <button id="btnGroupDrop1" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            التحكم
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                            <a class="btn btn-dark col-sm-12"  href="{{route('specializations.edit',['specialization'=>$specialization->id])}}">تعديل</a>
-                                            <form method="post" action="{{route('specializations.destroy',['specialization'=>$specialization->id])}}">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-dark col-sm-12" >حذف</button>
-                                            </form>
+                            <th>
+                                <a class="btn btn-dark col-sm-12" data-toggle="modal" data-target="#specialization{{$specialization->id}}">عرض</a><br>
+                            </th>
+                            <th>{{$specialization->Title_ar}}</th>
+                            <th>{{$specialization->Title_en}}</th>
+                            <th>{{$specialization->Title_ku}}</th>
+                        
+                            <th> 
+                                <center>
+                                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+        
+                                        <div class="btn-group" role="group">
+                                            <button id="btnGroupDrop1" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                التحكم
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                                <a class="btn btn-dark col-sm-12"  href="{{route('specializations.edit',['specialization'=>$specialization->id])}}">تعديل</a>
+                                                <form method="post" action="{{route('specializations.destroy',['specialization'=>$specialization->id])}}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-dark col-sm-12" >حذف</button>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </center>
-                        </th>
+                                </center>
+                            </th>
                         </tr>
                         @endforeach
 
@@ -80,7 +81,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body backgroundColorSec p-5">
-                                    <img width="500" height="600" src="{{asset('assets/images/blogs')}}/{{$blog->image}}">
+                                    <img width="400" height="400" src="{{asset('assets/images/specializations')}}/{{$specializationn->image}}">
                                 </div>
                                 
                                 </div>

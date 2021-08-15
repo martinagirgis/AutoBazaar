@@ -27,8 +27,8 @@ class TypeCategoryController extends Controller
      */
     public function create()
     {
-        $sellType = SellType::get();
-        return view('admin.typeCategories.create' , compact('sellType'));
+        $sellTypes = SellType::get();
+        return view('admin.typeCategories.create' , compact('sellTypes'));
     }
 
     /**
@@ -43,7 +43,7 @@ class TypeCategoryController extends Controller
         $file_to_store = time() . '_' . $fileName ;
         $request->image->move(public_path('assets/images/typeCategories'), $file_to_store);
         
-        SellType::create([
+        TypeCategory::create([
             'Title_ar' => $request->Title_ar,
             'Title_en' => $request->Title_en,
             'Title_ku' => $request->Title_ku,
@@ -73,8 +73,8 @@ class TypeCategoryController extends Controller
     public function edit($id)
     {
         $typeCategory = TypeCategory::find($id);
-        $sellType = SellType::get();
-        return view('admin.typeCategories.edit', compact('typeCategory', 'sellType'));
+        $sellTypes = SellType::get();
+        return view('admin.typeCategories.edit', compact('typeCategory', 'sellTypes'));
     }
 
     /**

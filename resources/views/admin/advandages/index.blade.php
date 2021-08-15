@@ -23,46 +23,69 @@
                     <strong>{{ $message }}</strong>
                 </div>
                 @endif
-                <h5 class="">المدن</h5>
+                <h5 class="">الإضافات</h5>
                 
                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 
                     <thead>
                     <tr>
-                        <th>المدينة باللغة العربية</th>
-                        <th>المدينة باللغة الانجليزية</th>
-                        <th>المدينة باللغة الكردية</th>
+                        <th>الصورة</th>
+                        <th>الإضافة باللغة العربية</th>
+                        <th>الإضافة باللغة الانجليزية</th>
+                        <th>الإضافة باللغة الكردية</th>
                         <th>التحكم</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                        @foreach($cities as $city)
+                        @foreach($advandages as $advandage)
                         <tr>
-                        <th>{{$city->Title_ar}}</th>
-                        <th>{{$city->Title_en}}</th>
-                        <th>{{$city->Title_ku}}</th>
-                        <th> 
-                            <center>
-                                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-    
-                                    <div class="btn-group" role="group">
-                                        <button id="btnGroupDrop1" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            التحكم
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                            <a class="btn btn-dark col-sm-12"  href="{{route('cities.edit',['city'=>$city->id])}}">تعديل</a>
-                                            <form method="post" action="{{route('cities.destroy',['city'=>$city->id])}}">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-dark col-sm-12" >حذف</button>
-                                            </form>
+                            <th>
+                                <a class="btn btn-dark col-sm-12" data-toggle="modal" data-target="#advandage{{$advandage->id}}">عرض</a><br>
+                            </th>
+                            <th>{{$advandage->Title_ar}}</th>
+                            <th>{{$advandage->Title_en}}</th>
+                            <th>{{$advandage->Title_ku}}</th>
+                            <th> 
+                                <center>
+                                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+        
+                                        <div class="btn-group" role="group">
+                                            <button id="btnGroupDrop1" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                التحكم
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                                <a class="btn btn-dark col-sm-12"  href="{{route('advandages.edit',['advandage'=>$advandage->id])}}">تعديل</a>
+                                                <form method="post" action="{{route('advandages.destroy',['advandage'=>$advandage->id])}}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-dark col-sm-12" >حذف</button>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </center>
-                        </th>
+                                </center>
+                            </th>
                         </tr>
+                        @endforeach
+
+                        @foreach($advandages as $advandagee)
+                        <div class="modal fade" id="advandage{{$advandagee->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="advandageLabel{{$advandagee->id}}" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                <div class="modal-header backgroundColor text-white" style="border:none">
+                                    <h5 class="modal-title" style="color: black" id="advandageLabel{{$advandagee->id}}">الصورة</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body backgroundColorSec p-5">
+                                    <img width="400" height="400" src="{{asset('assets/images/advandages')}}/{{$advandagee->image}}">
+                                </div>
+                                
+                                </div>
+                            </div>
+                        </div>
                         @endforeach
                     </tbody>
                 </table>
