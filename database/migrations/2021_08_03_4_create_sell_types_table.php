@@ -18,7 +18,9 @@ class CreateSellTypesTable extends Migration
             $table->string('Title_ar')->nullable();
             $table->string('Title_en')->nullable();
             $table->string('Title_ku')->nullable();
-            $table->string('type')->nullable();
+            $table->bigInteger('category_id')->unsigned()->nullable();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
+            
             $table->timestamps();
         });
     }

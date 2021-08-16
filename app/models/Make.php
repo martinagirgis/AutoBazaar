@@ -12,6 +12,6 @@ class Make extends Model
         'Title_ar',
         'Title_en',
         'Title_ku',
-        '',
+        'sell_type_id',
     ];
 }

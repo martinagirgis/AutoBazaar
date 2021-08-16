@@ -72,18 +72,7 @@
         <li>
             <a href="javascript: void(0);" class="has-arrow">
                 <i class="fas fa-exclamation-triangle"></i>
-                <span> أقسام الاقسام الرئيسية </span>
-            </a>
-            <ul class="sub-menu" aria-expanded="false">
-                <li><a href="{{route("subcategories.index")}}">عرض الكل</a></li>
-                <li><a href="{{route("subcategories.create")}}">اضافة قسم لقسم رئيسي جديد</a></li>
-            </ul>
-        </li>
-
-        <li>
-            <a href="javascript: void(0);" class="has-arrow">
-                <i class="fas fa-exclamation-triangle"></i>
-                <span> اقسام الاليات ثقيلة </span>
+                <span> اقسام الاقسام </span>
             </a>
             <ul class="sub-menu" aria-expanded="false">
                 <li><a href="{{route("sections.index")}}">عرض الكل</a></li>

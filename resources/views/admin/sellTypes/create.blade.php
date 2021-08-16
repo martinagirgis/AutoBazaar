@@ -45,7 +45,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">القسم الرئيسي</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="type">
+                            <select class="form-control" name="category_id">
                                 @foreach($categories as $category)
                                     <option value="{{$category->id}}">{{$category->Title_ar}}</option>
                                 @endforeach

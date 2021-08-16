@@ -12,11 +12,11 @@ class SellType extends Model
         'Title_ar',
         'Title_en',
         'Title_ku',
-        'type',
+        'category_id',
     ];
 
     public function category()
     {
-        return $this->belongsTo('App\models\Category','type');
+        return $this->belongsTo('App\models\Category','category_id');
     }
 }

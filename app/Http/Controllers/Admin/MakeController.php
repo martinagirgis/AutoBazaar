@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\models\Make;
+use App\models\SellType;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class MakeController extends Controller
 {
@@ -26,7 +27,8 @@ class MakeController extends Controller
      */
     public function create()
     {
-        return view('admin.makes.create');
+        $sellTypes = SellType::get();
+        return view('admin.makes.create', compact('sellTypes'));
     }
 
     /**
@@ -41,6 +43,7 @@ class MakeController extends Controller
             'Title_ar' => $request->Title_ar,
             'Title_en' => $request->Title_en,
             'Title_ku' => $request->Title_ku,
+            'sell_type_id' => $request->sell_type_id,
         ]);
         return redirect()->route('makes.index')->with('success', 'تم اضافة النوع بنجاح');
     }
@@ -65,7 +68,8 @@ class MakeController extends Controller
     public function edit($id)
     {
         $make = Make::find($id);
-        return view('admin.makes.edit', compact('make'));
+        $sellTypes = SellType::get();
+        return view('admin.makes.edit', compact('make', 'sellTypes'));
     }
 
     /**
@@ -82,6 +86,7 @@ class MakeController extends Controller
             'Title_ar' => $request->Title_ar,
             'Title_en' => $request->Title_en,
             'Title_ku' => $request->Title_ku,
+            'sell_type_id' => $request->sell_type_id,
         ]);
         return redirect()->route('makes.index')->with('success', 'تم تعديل النوع بنجاح');
     }

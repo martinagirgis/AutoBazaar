@@ -41,6 +41,17 @@
                             <input class="form-control" type="text" id="example-text-input" name="Title_ku">
                         </div>
                     </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">نوع الاعلان</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="sell_type_id">
+                                @foreach($sellTypes as $sellType)
+                                    <option value="{{$sellType->id}}">{{$sellType->Title_ar}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                     
                     <div class="form-group row">
                         <div class="col-12 text-center">

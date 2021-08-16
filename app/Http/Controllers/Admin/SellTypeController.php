@@ -43,7 +43,7 @@ class SellTypeController extends Controller
             'Title_ar' => $request->Title_ar,
             'Title_en' => $request->Title_en,
             'Title_ku' => $request->Title_ku,
-            'type' => $request->type,
+            'category_id' => $request->category_id,
         ]);
         return redirect()->route('sellTypes.index')->with('success', 'تم اضافة نوع الاعلان بنجاح');
     }
@@ -86,7 +86,7 @@ class SellTypeController extends Controller
             'Title_ar' => $request->Title_ar,
             'Title_en' => $request->Title_en,
             'Title_ku' => $request->Title_ku,
-            'type' => $request->type,
+            'category_id' => $request->category_id,
         ]);
         return redirect()->route('sellTypes.index')->with('success', 'تم تعديل نوع الاعلان بنجاح');
     }

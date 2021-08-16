@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\models\Section;
+use App\models\SellType;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SectionController extends Controller
 {
@@ -26,7 +27,8 @@ class SectionController extends Controller
      */
     public function create()
     {
-        return view('admin.sections.create');
+        $sellTypes = SellType::get();
+        return view('admin.sections.create', compact('sellTypes'));
     }
 
     /**
@@ -41,6 +43,7 @@ class SectionController extends Controller
             'Title_ar' => $request->Title_ar,
             'Title_en' => $request->Title_en,
             'Title_ku' => $request->Title_ku,
+            'sell_type_id' => $request->sell_type_id,
         ]);
         return redirect()->route('sections.index')->with('success', 'تم اضافة القسم بنجاح');
     }
@@ -65,7 +68,8 @@ class SectionController extends Controller
     public function edit($id)
     {
         $section = Section::find($id);
-        return view('admin.sections.edit', compact('section'));
+        $sellTypes = SellType::get();
+        return view('admin.sections.edit', compact('section','sellTypes'));
     }
 
     /**
@@ -82,6 +86,7 @@ class SectionController extends Controller
             'Title_ar' => $request->Title_ar,
             'Title_en' => $request->Title_en,
             'Title_ku' => $request->Title_ku,
+            'sell_type_id' => $request->sell_type_id,
         ]);
         return redirect()->route('sections.index')->with('success', 'تم تعديل القسم بنجاح');
     }

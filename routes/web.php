@@ -86,3 +86,6 @@ Route::resource('subcategories','Admin\SubcategoryController'); //2 done
 Route::resource('subsriptions','Admin\SubsriptionController'); //1
 Route::resource('typeCategories','Admin\TypeCategoryController'); //2 done
 Route::resource('users','Admin\UsersController'); //1
+
+Route::get('/getSections', 'Admin\ProductController@getSections');
+Route::get('/getSectionstest', 'Admin\ProductController@getSectionstest');

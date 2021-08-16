@@ -12,6 +12,11 @@ class Section extends Model
         'Title_ar',
         'Title_en',
         'Title_ku',
-        '',
+        'sell_type_id',
     ];
+
+    public function sellType()
+    {
+        return $this->belongsTo('App\models\SellType','sell_type_id');
+    }
 }

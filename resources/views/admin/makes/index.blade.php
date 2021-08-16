@@ -32,6 +32,7 @@
                         <th>النوع باللغة العربية</th>
                         <th>النوع باللغة الانجليزية</th>
                         <th>النوع باللغة الكردية</th>
+                        <th>نوع الاعلان</th>
                         <th>التحكم</th>
                     </tr>
                     </thead>
@@ -42,6 +43,7 @@
                         <th>{{$make->Title_ar}}</th>
                         <th>{{$make->Title_en}}</th>
                         <th>{{$make->Title_ku}}</th>
+                        <th>{{$make->sellType->Title_ar}}</th>
                         <th> 
                             <center>
                                 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">

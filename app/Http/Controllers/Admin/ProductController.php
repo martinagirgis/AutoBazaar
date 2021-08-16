@@ -37,19 +37,18 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $sellType = SellType::get();
+        $sellTypes = SellType::get();
         $sections = Section::get();
-        $typeCategory = TypeCategory::get();
+        $typeCategories = TypeCategory::get();
         $makes = Make::get();
         $cities = City::get();
         $users = User::get();
-        $subcategory = Subcategory::get();
         $status = Status::get();
         $gearbox = Gearbox::get();
         $fuel = FuelType::get();
         $advandage = Advandage::get();
-        return view('admin.products.create', compact('advandage', 'fuel', 'subcategory','gearbox', 'sellType', 'sections', 'typeCategory', 'makes', 'cities', 'users'));
-    }
+        return view('admin.products.create', compact('advandage', 'fuel', 'gearbox', 'sellTypes', 'sections', 'typeCategories', 'makes', 'cities', 'users'));
+    } 
 
     /**
      * Store a newly created resource in storage.
@@ -64,6 +63,7 @@ class ProductController extends Controller
         $request->image->move(public_path('assets/images/products'), $file_to_store);
         
         Product::create([
+            'category_id' => $request->category_id,
             'subcategory_id' => $request->subcategory_id,
             'sell_type_id' => $request->sell_type_id,
             'section_id' => $request->section_id,
@@ -113,7 +113,6 @@ class ProductController extends Controller
         $makes = Make::get();
         $cities = City::get();
         $users = User::get();
-        $subcategory = Subcategory::get();
         $status = Status::get();
         $gearbox = Gearbox::get();
         $fuel = FuelType::get();
@@ -179,5 +178,25 @@ class ProductController extends Controller
         $old = Product::find($id);
         $old->delete();
         return redirect()->route('products.index')->with('success', 'Deleted successfully');
+    }
+
+    public function getSections(Request $request)
+    {
+        $sections = Section::where('sell_type_id', $request->sellTypeId)->get();
+        $typeCategories = TypeCategory::where('sell_type_id', $request->sellTypeId)->get();
+        $makes = Make::where('sell_type_id', $request->sellTypeId)->get();
+        
+        return response()->json([
+            'sections' =>$sections,
+            'typeCategories' => $typeCategories,
+            'makes' => $makes,
+        ]);
+    }
+
+    public function getSectionstest()
+    {
+        $sections = Section::where('sell_type_id', 1)->get();
+        dd($sections);
+        // return response()->json($sections);
     }
 }

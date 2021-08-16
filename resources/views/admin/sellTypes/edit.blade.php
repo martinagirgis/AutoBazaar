@@ -46,7 +46,7 @@
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">القسم الرئيسي</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="type">
+                            <select class="form-control" name="category_id">
                                 @foreach($categories as $category)
                                     @if($category->id == $sellType->category->id)
                                         <option value="{{$category->id}}" selected>{{$category->Title_ar}}</option>
