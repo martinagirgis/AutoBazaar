@@ -30,9 +30,9 @@
                     <thead>
                     <tr>
                         <th>نوع الاعلان</th>
+                        <th>القسم</th>
+                        <th>الحالة</th>
                         <th>السنة</th>
-                        <th>مدة التأجير</th>
-                        <th>السعر</th>
                         <th>التحكم</th>
                     </tr>
                     </thead>
@@ -41,9 +41,9 @@
                         @foreach($products as $product)
                         <tr>
                         <th>{{$product->sellType->Title_ar}}</th>
+                        <th>{{$product->section->Title_ar}}</th>
+                        <th>{{$product->status->Title_ar}}</th>
                         <th>{{$product->year}}</th>
-                        <th>{{$product->rent_period}}</th>
-                        <th>{{$product->price}}</th>
 
                         <th> 
                             <center>
@@ -54,9 +54,9 @@
                                             التحكم
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                            <a class="btn btn-dark col-sm-12"  href="{{route('carsRentals.show',['carsRental'=>$product->id])}}">عرض</a><br>
-                                            <a class="btn btn-dark col-sm-12"  href="{{route('carsRentals.edit',['carsRental'=>$product->id])}}">تعديل</a>
-                                            <form method="post" action="{{route('carsRentals.destroy',['carsRental'=>$product->id])}}">
+                                            <a class="btn btn-dark col-sm-12"  href="{{route('spareParts.show',['sparePart'=>$product->id])}}">عرض</a><br>
+                                            <a class="btn btn-dark col-sm-12"  href="{{route('spareParts.edit',['sparePart'=>$product->id])}}">تعديل</a>
+                                            <form method="post" action="{{route('spareParts.destroy',['sparePart'=>$product->id])}}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-dark col-sm-12" >حذف</button>

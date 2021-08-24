@@ -19,4 +19,19 @@ class SellType extends Model
     {
         return $this->belongsTo('App\models\Category','category_id');
     }
+
+    public function sections()
+    {
+        return $this->hasMany('App\models\Section','sell_type_id');
+    }
+
+    public function typeCategories()
+    {
+        return $this->hasMany('App\models\TypeCategory','sell_type_id');
+    }
+
+    public function makes()
+    {
+        return $this->hasMany('App\models\Make','sell_type_id');
+    }
 }

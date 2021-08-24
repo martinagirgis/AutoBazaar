@@ -19,6 +19,41 @@ class CarsRentalProduct extends Model
         'district_id',
         'price',
         'user_id',
-        'image'
+        'images'
     ];
+
+    public function sellType()
+    {
+        return $this->belongsTo('App\models\SellType','sell_type_id');
+    }
+
+    public function section()
+    {
+        return $this->belongsTo('App\models\Section','section_id');
+    }
+
+    public function typeCategory()
+    {
+        return $this->belongsTo('App\models\TypeCategory','type_category_id');
+    }
+
+    public function make()
+    {
+        return $this->belongsTo('App\models\Make','make_id');
+    }
+
+    public function district()
+    {
+        return $this->belongsTo('App\models\District','district_id');
+    }
+
+    public function city()
+    {
+        return $this->belongsTo('App\models\City','city_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User','user_id');
+    }
 }

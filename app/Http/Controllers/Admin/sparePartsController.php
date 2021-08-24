@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\admin;
 
 use App\User;
 use App\models\City;
@@ -18,17 +18,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\models\District;
 
-class ProductController extends Controller
+class sparePartsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {   
-        $products = Product::where('category_id', 1)->get();
-        return view('admin.products.index',compact('products'));
+        $products = Product::where('category_id', 2)->get();
+        return view('admin.spareParts.index',compact('products'));
     }
 
     /**
@@ -38,7 +33,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $sellTypes = SellType::where('category_id', 1)->get();
+        $sellTypes = SellType::where('category_id', 2)->get();
         $sections = Section::get();
         $typeCategories = TypeCategory::get();
         $makes = Make::get();
@@ -48,7 +43,7 @@ class ProductController extends Controller
         $gearboxes = Gearbox::get();
         $fuels = FuelType::get();
         $advandages = Advandage::get();
-        return view('admin.products.create', compact('advandages', 'fuels', 'gearboxes', 'sellTypes', 'sections', 'typeCategories', 'makes', 'cities', 'users', 'statuses'));
+        return view('admin.spareParts.create', compact('advandages', 'fuels', 'gearboxes', 'sellTypes', 'sections', 'typeCategories', 'makes', 'cities', 'users', 'statuses'));
     } 
 
     /**
@@ -66,7 +61,6 @@ class ProductController extends Controller
             $request->images[$i]->move(public_path('assets/images/products'), $imageName);
         }
         $images = implode('|', $x);
-        $advandages = implode('|', $request->advandage_id);
 
         Product::create([
             'category_id' => $request->category_id,
@@ -78,22 +72,13 @@ class ProductController extends Controller
             'model' => $request->model,
             'status_id' => $request->status_id,
             'year' => $request->year,
-            'gearbox_id' => $request->gearbox_id,
-            'fuel_type_id' => $request->fuel_type_id,
-            'distance' => $request->distance,
-            'work_hour' => $request->work_hour,
-            'color' => $request->color,
-            'payment_method' => $request->payment_method,
             'city_id' => $request->city_id,
             'district_id' => $request->district_id,
-            'advandage_id' => $advandages,
-            'interior_brush' => $request->interior_brush,
-            'interior_color' => $request->interior_color,
-            'description' => $request->description,
+            'product_type' => $request->product_type,
             'user_id' => $request->user_id,
             'images' => $images,
         ]);
-        return redirect()->route('products.index')->with('success', 'The product has created successfully.');
+        return redirect()->route('spareParts.index')->with('success', 'The product has created successfully.');
     }
 
     /**
@@ -104,9 +89,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $advandages = Advandage::get();
         $product = Product::find($id);
-        return view('admin.products.show', compact('advandages', 'product'));
+        return view('admin.spareParts.show', compact('product'));
     
     }
 
@@ -118,18 +102,15 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $sellTypes = SellType::where('category_id', 1)->get();
+        $sellTypes = SellType::get();
         $sections = Section::get();
         $typeCategories = TypeCategory::get();
         $makes = Make::get();
         $cities = City::get();
         $users = User::get();
         $statuses = Status::get();
-        $gearboxes = Gearbox::get();
-        $fuels = FuelType::get();
-        $advandages = Advandage::get();
         $product = Product::find($id);
-        return view('admin.products.edit', compact('advandages', 'fuels','gearboxes', 'sellTypes', 'sections', 'typeCategories', 'makes', 'cities', 'users', 'product', 'statuses'));
+        return view('admin.spareParts.edit', compact( 'sellTypes', 'sections', 'typeCategories', 'makes', 'cities', 'users', 'product', 'statuses'));
     }
 
     /**
@@ -155,11 +136,9 @@ class ProductController extends Controller
         else{
             $images = $product->images;
         }
-        $advandages = implode('|', $request->advandage_id);
 
         $product->update([
             'category_id' => $request->category_id,
-            // 'subcategory_id' => $request->subcategory_id,
             'sell_type_id' => $request->sell_type_id,
             'section_id' => $request->section_id,
             'type_category_id' => $request->type_category_id,
@@ -167,22 +146,13 @@ class ProductController extends Controller
             'model' => $request->model,
             'status_id' => $request->status_id,
             'year' => $request->year,
-            'gearbox_id' => $request->gearbox_id,
-            'fuel_type_id' => $request->fuel_type_id,
-            'distance' => $request->distance,
-            'work_hour' => $request->work_hour,
-            'color' => $request->color,
-            'payment_method' => $request->payment_method,
             'city_id' => $request->city_id,
             'district_id' => $request->district_id,
-            'advandage_id' => $advandages,
-            'interior_brush' => $request->interior_brush,
-            'interior_color' => $request->interior_color,
             'product_type' => $request->product_type,
             'user_id' => $request->user_id,
             'images' => $images,
         ]);
-        return redirect()->route('products.index')->with('success', 'The product has updated successfully.');
+        return redirect()->route('spareParts.index')->with('success', 'The product has updated successfully.');
     }
 
     /**
@@ -195,18 +165,16 @@ class ProductController extends Controller
     {
         $old = Product::find($id);
         $old->delete();
-        return redirect()->route('products.index')->with('success', 'Deleted successfully');
+        return redirect()->route('spareParts.index')->with('success', 'Deleted successfully');
     }
 
     public function getSections(Request $request)
     {
         $sections = Section::where('sell_type_id', $request->sellTypeId)->get();
-        $typeCategories = TypeCategory::where('sell_type_id', $request->sellTypeId)->get();
         $makes = Make::where('sell_type_id', $request->sellTypeId)->get();
         
         return response()->json([
             'sections' =>$sections,
-            'typeCategories' => $typeCategories,
             'makes' => $makes,
         ]);
     }

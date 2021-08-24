@@ -22,7 +22,7 @@
 <body>
 @include('includes.nav')
 <!-- profile -->
-<div class="container">
+<div class="">
     @yield('content')
 
 </div>

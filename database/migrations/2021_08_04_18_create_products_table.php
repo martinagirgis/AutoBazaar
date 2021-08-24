@@ -27,8 +27,7 @@ class CreateProductsTable extends Migration
             $table->bigInteger('section_id')->unsigned()->nullable();
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('set null');
             
-            $table->bigInteger('type_category_id')->unsigned()->nullable();
-            $table->foreign('type_category_id')->references('id')->on('type_categories')->onDelete('set null');
+            $table->string('type_category_id')->unsigned()->nullable();
             
             $table->bigInteger('make_id')->unsigned()->nullable();
             $table->foreign('make_id')->references('id')->on('makes')->onDelete('set null');
@@ -61,7 +60,6 @@ class CreateProductsTable extends Migration
             $table->foreign('district_id')->references('id')->on('districts')->onDelete('set null');
             
             $table->bigInteger('advandage_id')->unsigned()->nullable();
-            $table->foreign('advandage_id')->references('id')->on('advandages')->onDelete('set null');
             
             $table->string('interior_brush')->nullable();
 
@@ -69,10 +67,14 @@ class CreateProductsTable extends Migration
 
             $table->string('product_type')->nullable();
 
+            $table->text('description')->nullable();
+
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
 
-            $table->string('image');
+            $table->string('images')->nullable();
+            $table->string('price')->nullable();
+            $table->string('title')->nullable();
             $table->timestamps();
         });
     }

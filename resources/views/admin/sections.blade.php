@@ -39,11 +39,22 @@
         <li>
             <a href="javascript: void(0);" class="has-arrow">
                 <i class="fas fa-exclamation-triangle"></i>
-                <span> المنجات </span>
+                <span>  منتجات السيارات و الاليات الثقيلة </span>
             </a>
             <ul class="sub-menu" aria-expanded="false">
                 <li><a href="{{route("products.index")}}">عرض الكل</a></li>
                 <li><a href="{{route("products.create")}}">اضافة منتج جديد</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript: void(0);" class="has-arrow">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>منتجات القطع </span>
+            </a>
+            <ul class="sub-menu" aria-expanded="false">
+                <li><a href="{{route("spareParts.index")}}">عرض الكل</a></li>
+                <li><a href="{{route("spareParts.create")}}">اضافة قطعة جديدة</a></li>
             </ul>
         </li>
 

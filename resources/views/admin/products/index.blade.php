@@ -23,25 +23,32 @@
                     <strong>{{ $message }}</strong>
                 </div>
                 @endif
-                <h5 class="">المدن</h5>
+                <h5 class="">منتجات السيارات و الاليات</h5>
                 
                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 
                     <thead>
                     <tr>
-                        <th>المدينة باللغة العربية</th>
-                        <th>المدينة باللغة الانجليزية</th>
-                        <th>المدينة باللغة الكردية</th>
+                        <th>نوع الاعلان</th>
+                        <th>الحالة</th>
+                        <th>السنة</th>
+                        <th>طرق الدفع</th>
                         <th>التحكم</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                        @foreach($cities as $city)
+                        @foreach($products as $product)
                         <tr>
-                        <th>{{$city->Title_ar}}</th>
-                        <th>{{$city->Title_en}}</th>
-                        <th>{{$city->Title_ku}}</th>
+                        <th>{{$product->sellType->Title_ar}}</th>
+                        <th>{{$product->status->Title_ar}}</th>
+                        <th>{{$product->year}}</th>
+                        @if($product->payment_method == 'cash')
+                            <th> كاش </th>
+                        @elseif($product->payment_method == 'installment')
+                            <th> اقساط </th>
+                        @endif
+
                         <th> 
                             <center>
                                 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
@@ -51,8 +58,9 @@
                                             التحكم
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                            <a class="btn btn-dark col-sm-12"  href="{{route('cities.edit',['city'=>$city->id])}}">تعديل</a>
-                                            <form method="post" action="{{route('cities.destroy',['city'=>$city->id])}}">
+                                            <a class="btn btn-dark col-sm-12"  href="{{route('products.show',['product'=>$product->id])}}">عرض</a><br>
+                                            <a class="btn btn-dark col-sm-12"  href="{{route('products.edit',['product'=>$product->id])}}">تعديل</a>
+                                            <form method="post" action="{{route('products.destroy',['product'=>$product->id])}}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-dark col-sm-12" >حذف</button>

@@ -14,18 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/',function(){
-    return view('site.index');
-})->name('home');
-Route::get('/category/{name}',function(){
-    return view('site.subcategory');
-})->name('subcategory');
+// Route::get('/',function(){
+//     return view('site.index');
+// })->name('home');
+// Route::get('/category/{name}',function(){
+//     return view('site.subcategory');
+// })->name('subcategory');
 Route::get('/subcategory/details',function(){
     return view('site.categoryDetails');
 })->name('subcategory.details');
-Route::get('/product/details',function(){
-    return view('site.productDetails');
-})->name('product.details');
+// Route::get('/product/details',function(){
+//     return view('site.productDetails');
+// })->name('product.details');
 
 Route::get('/wishlist',function(){
     return view('site.wishlist');
@@ -68,7 +68,7 @@ Route::get('/admin', function () {
 
 Route::resource('admins','Admin\AdminController'); //1
 Route::resource('advandages','Admin\AdvandageController'); //2 done
-Route::resource('carsRentals','Admin\CarsRentalProductController'); //2
+Route::resource('carsRentals','Admin\CarsRentalProductController'); //2 done
 Route::resource('categories','Admin\CategoryController'); //done
 Route::resource('cities','Admin\CityController'); //done
 Route::resource('districts','Admin\DistrictController'); //done
@@ -76,7 +76,7 @@ Route::resource('fuelTypes','Admin\FuelTypeController'); //done
 Route::resource('gearboxes','Admin\GearboxController'); //done
 Route::resource('maintenanceCenters','Admin\MaintenanceCenterController'); //done
 Route::resource('makes','Admin\MakeController'); //done
-Route::resource('products','Admin\ProductController'); //2
+Route::resource('products','Admin\ProductController'); //2 done
 Route::resource('profileMaintenance','Admin\ProfileMaintenanceController'); //1
 Route::resource('sections','Admin\SectionController'); //done
 Route::resource('sellTypes','Admin\SellTypeController'); //done
@@ -86,6 +86,17 @@ Route::resource('subcategories','Admin\SubcategoryController'); //2 done
 Route::resource('subsriptions','Admin\SubsriptionController'); //1
 Route::resource('typeCategories','Admin\TypeCategoryController'); //2 done
 Route::resource('users','Admin\UsersController'); //1
+Route::resource('spareParts','Admin\sparePartsController'); //2 done
+
+Route::get('/spareParts/getSections', 'Admin\sparePartsController@getSections');
 
 Route::get('/getSections', 'Admin\ProductController@getSections');
 Route::get('/getSectionstest', 'Admin\ProductController@getSectionstest');
+Route::get('/getDistricts', 'Admin\ProductController@getDistricts');
+
+
+
+/////////// site /////////////
+Route::get('/','Site\HomeController@index')->name('home');
+Route::get('/category/{name}','Site\HomeController@category')->name('subcategory');
+Route::get('/product/details/{product}','Site\HomeController@product')->name('product.details');

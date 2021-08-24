@@ -14,4 +14,9 @@ class City extends Model
         'Title_ku',
         '',
     ];
+
+    public function districts()
+    {
+        return $this->hasMany('App\models\District','city_id');
+    }
 }

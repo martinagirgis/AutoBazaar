@@ -26,5 +26,6 @@ class ProfileMaintenance extends Model
         'email',
         'password',
         'name',
+        'description',
     ];
 }

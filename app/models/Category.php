@@ -12,6 +12,10 @@ class Category extends Model
         'Title_ar',
         'Title_en',
         'Title_ku',
-        '',
     ];
+
+    public function products()
+    {
+        return $this->hasMany('App\models\Product','category_id');
+    }
 }

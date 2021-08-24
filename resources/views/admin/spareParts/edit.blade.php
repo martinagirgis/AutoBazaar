@@ -22,7 +22,7 @@
                 @endif
                 <h5 class="mb-5 mt-3">تعديل المنتج</h5>
 
-                <form method="post" action="{{route('carsRentals.update',['carsRental'=>$product->id])}}" enctype="multipart/form-data">
+                <form method="post" action="{{route('spareParts.update',['sparePart'=>$product->id])}}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
@@ -46,34 +46,24 @@
                     </div>
 
                     <div class="form-group row">
-                        @if($product->sellType->Title_ar == "آليات ثقيلة للايجار")
-                            <label class="col-sm-2 col-form-label">القسم</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" id="section_id" name="section_id" required>
-                                    @foreach($product->sellType->sections as $section)
-                                        @if($section->id == $product->section_id)
-                                            <option value="{{$section->id}}" selected>{{$section->Title_ar}}</option>
-                                        @else
-                                            <option value="{{$section->id}}">{{$section->Title_ar}}</option>
-                                        @endif
-                                    @endforeach
-                                </select>
-                            </div>
-                        @endif
+                        <label class="col-sm-2 col-form-label">القسم</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="section_id" name="section_id" required>
+                                @foreach($product->sellType->sections as $section)
+                                    @if($section->id == $product->section_id)
+                                        <option value="{{$section->id}}" selected>{{$section->Title_ar}}</option>
+                                    @else
+                                        <option value="{{$section->id}}">{{$section->Title_ar}}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">التصنيف</label>
                         <div class="col-sm-10">
-                            <select class="form-control" id="type_category_id" name="type_category_id" required>
-                                @foreach($product->sellType->typeCategories as $typeCategory)
-                                    @if($typeCategory->id == $product->type_category_id)
-                                        <option value="{{$typeCategory->id}}" selected>{{$typeCategory->Title_ar}}</option>
-                                    @else
-                                        <option value="{{$typeCategory->id}}">{{$typeCategory->Title_ar}}</option>
-                                    @endif
-                                @endforeach
-                            </select>
+                            <input class="form-control" type="text" id="example-text-input" name="type_category_id" value="{{$product->type_category_id}}" required>
                         </div>
                     </div>
 
@@ -92,6 +82,29 @@
                         </div>
                     </div>
 
+
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">الفئة</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" id="example-text-input" name="model" value="{{$product->model}}" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">الحالة</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="status_id" name="status_id" required>
+                                @foreach($statuses as $status)
+                                    @if($status->id == $product->status_id)
+                                        <option value="{{$status->id}}" selected>{{$status->Title_ar}}</option>
+                                    @else
+                                        <option value="{{$status->id}}">{{$status->Title_ar}}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">سنة الصنع</label>
                         <div class="col-sm-10">
@@ -104,36 +117,6 @@
                                     @endif
                                     <option value="{{$i}}">{{$i}}</option>
                                 @endfor
-                            </select>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">طرق الدفع</label>
-                        <div class="col-sm-10">
-                            <select class="form-control" id="rent_period" name="rent_period" required>
-                                @if($product->rent_period == 'hour')
-                                    <option value="hour" selected>ساعي</option>
-                                    <option value="daily">يومي</option>
-                                    <option value="weekly">اسبوعي</option>
-                                    <option value="yearly">سنوي</option>                               
-                                @elseif($product->rent_period == 'daily')
-                                    <option value="hour">ساعي</option>
-                                    <option value="daily" selected>يومي</option>
-                                    <option value="weekly">اسبوعي</option>
-                                    <option value="yearly">سنوي</option> 
-                                @elseif($product->rent_period == 'weekly')
-                                    <option value="hour">ساعي</option>
-                                    <option value="daily">يومي</option>
-                                    <option value="weekly" selected>اسبوعي</option>
-                                    <option value="yearly">سنوي</option>                               
-                                @elseif($product->rent_period == 'yearly')
-                                    <option value="hour">ساعي</option>
-                                    <option value="daily">يومي</option>
-                                    <option value="weekly">اسبوعي</option>
-                                    <option value="yearly" selected>سنوي</option> 
-                                @endif
                             </select>
                         </div>
                     </div>
@@ -170,9 +153,24 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="example-text-input" class="col-sm-2 col-form-label">السعر</label>
+                        <label class="control-label col-sm-2">نوع المنتج</label>
                         <div class="col-sm-10">
-                            <input class="form-control" type="number" id="example-text-input" name="price" value="{{$product->price}}" required>
+                            <select class="form-control" id="product_type" name="product_type" required>
+                                @if($product->product_type == 'single')
+                                    <option value="single" selected>قطعة منفردة</option>
+                                    <option value="sit">سيت كامل</option>
+                                    <option value="repair">طقم اصلاح</option>
+                                @elseif($product->product_type == 'sit')
+                                <option value="single">قطعة منفردة</option>
+                                <option value="sit" selected>سيت كامل</option>
+                                <option value="repair">طقم اصلاح</option>
+                                @elseif($product->product_type == 'bothOfThem')
+                                <option value="single">قطعة منفردة</option>
+                                <option value="sit">سيت كامل</option>
+                                <option value="repair" selected>طقم اصلاح</option>
+                                @endif
+                                
+                            </select>
                         </div>
                     </div>
 
@@ -200,7 +198,7 @@
                     
                     <div class="form-group row">
                         <div class="col-12 text-center">
-                            <button type="submit" class="btn btn-dark w-25">اضافة</button>
+                            <button type="submit" class="btn btn-dark w-25">تعديل</button>
                         </div>
                     </div>
                 </form>
@@ -221,10 +219,7 @@
         $(document).ready(function(){
             $('#sellType').on('change', function() {
                var id = $(this).val();
-               var text = $( "#sellType option:selected" ).text();
                
-            
-               console.log(text);
                $.ajax({
                url:'http://127.0.0.1:8000/getSections',
                    method:"get",
@@ -234,28 +229,14 @@
                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                    },
                    success:function(data){ 
-                    var sectionss = document.getElementById('sections');
-
-                    if(text == "آليات ثقيلة للايجار")
-                    {
-                        sectionss.innerHTML = " <label class='col-sm-2 col-form-label'>القسم</label><div class='col-sm-10'><select class='form-control' id='section_id' name='section_id'></select></div>";
-                        var sections = document.getElementById('section_id');
-
-                        data['sections'].forEach(section => sections.innerHTML += "<option value="+section.id+">"+section.Title_ar+"</option>");
-                                               
-                    }
-                    else
-                    {
-                        sectionss.innerHTML = "";
-                    }
                     
-                    var typeCategories = document.getElementById('type_category_id');
+                    var sections = document.getElementById('section_id');
                     var makes = document.getElementById('make_id');
                     
-                    typeCategories.innerHTML = "";
+                    sections.innerHTML = "";
                     makes.innerHTML = "";
 
-                    data['typeCategories'].forEach(typeCategory => typeCategories.innerHTML += "<option value="+typeCategory.id+">"+typeCategory.Title_ar+"</option>");
+                    data['sections'].forEach(section => sections.innerHTML += "<option value="+section.id+">"+section.Title_ar+"</option>");
                     data['makes'].forEach(make => makes.innerHTML += "<option value="+make.id+">"+make.Title_ar+"</option>");
                     
                     //console.log(typeof data);
