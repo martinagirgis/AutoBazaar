@@ -87,6 +87,7 @@ Route::resource('subsriptions','Admin\SubsriptionController'); //1
 Route::resource('typeCategories','Admin\TypeCategoryController'); //2 done
 Route::resource('users','Admin\UsersController'); //1
 Route::resource('spareParts','Admin\sparePartsController'); //2 done
+Route::resource('generators','Admin\generatorsController'); //2 done
 
 Route::get('/spareParts/getSections', 'Admin\sparePartsController@getSections');
 

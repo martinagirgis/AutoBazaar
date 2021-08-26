@@ -186,6 +186,13 @@
                     </div>
 
                     <div class="form-group row">
+                        <label for="example-text-input" class="col-sm-2 col-form-label">السعر</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="number" id="example-text-input" name="price" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label for="example-text-input" class="col-sm-2 col-form-label">تفاصيل المنتج</label>
                         <div class="col-sm-10">
                             <textarea class="form-control" rows="3" id="example-text-input" name="description"></textarea>

@@ -49,10 +49,10 @@
                 <a class="nav-link navColor" href="{{route('home')}}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link navColor" href="#">Car Parts</a>
+                <a class="nav-link navColor" href="{{route('subcategory',['name'=>2])}}">Car Parts</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link navColor" href="#">Car Showrooms</a>
+                <a class="nav-link navColor" href="{{route('subcategory',['name'=>1])}}">Car Showrooms</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle navColor" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

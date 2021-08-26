@@ -18,6 +18,7 @@ class CreateMakesTable extends Migration
             $table->string('Title_ar')->nullable();
             $table->string('Title_en')->nullable();
             $table->string('Title_ku')->nullable();
+            $table->string('image')->nullable();
             $table->bigInteger('sell_type_id')->unsigned()->nullable();
             $table->foreign('sell_type_id')->references('id')->on('sell_types')->onDelete('set null');
             

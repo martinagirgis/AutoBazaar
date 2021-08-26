@@ -39,11 +39,16 @@ class MakeController extends Controller
      */
     public function store(Request $request)
     {
+        $fileName = $request->image->getClientOriginalName();
+        $file_to_store = time() . '_' . $fileName ;
+        $request->image->move(public_path('assets/images/makes'), $file_to_store);
+
         Make::create([
             'Title_ar' => $request->Title_ar,
             'Title_en' => $request->Title_en,
             'Title_ku' => $request->Title_ku,
             'sell_type_id' => $request->sell_type_id,
+            'image' => $file_to_store,
         ]);
         return redirect()->route('makes.index')->with('success', 'تم اضافة النوع بنجاح');
     }
@@ -82,11 +87,21 @@ class MakeController extends Controller
     public function update(Request $request, $id)
     {
         $make = Make::find($id);
+        if ($request->image) {
+            unlink(public_path('assets/images/makes') .'/' . $make->image);
+            $fileName = $request->image->getClientOriginalName();
+            $file_to_store = time() . '_' . $fileName ;
+            $request->image->move(public_path('assets/images/makes'), $file_to_store);
+        }
+        else{
+            $file_to_store = $make->image;
+        }
         $make->update([
             'Title_ar' => $request->Title_ar,
             'Title_en' => $request->Title_en,
             'Title_ku' => $request->Title_ku,
             'sell_type_id' => $request->sell_type_id,
+            'image' => $file_to_store,
         ]);
         return redirect()->route('makes.index')->with('success', 'تم تعديل النوع بنجاح');
     }

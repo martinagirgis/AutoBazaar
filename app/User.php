@@ -38,6 +38,7 @@ class User extends Authenticatable
         return $this->belongsTo('App\models\City','city_id');
     }
 
+
     /**
      * The attributes that should be hidden for arrays.
      *

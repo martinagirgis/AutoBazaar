@@ -29,6 +29,7 @@
 
                     <thead>
                     <tr>
+                        <th>الصورة</th>
                         <th>النوع باللغة العربية</th>
                         <th>النوع باللغة الانجليزية</th>
                         <th>النوع باللغة الكردية</th>
@@ -40,6 +41,9 @@
                     <tbody>
                         @foreach($makes as $make)
                         <tr>
+                        <th>
+                            <a class="btn btn-dark col-sm-12" data-toggle="modal" data-target="#make{{$make->id}}">عرض</a><br>
+                        </th>
                         <th>{{$make->Title_ar}}</th>
                         <th>{{$make->Title_en}}</th>
                         <th>{{$make->Title_ku}}</th>
@@ -65,6 +69,25 @@
                             </center>
                         </th>
                         </tr>
+                        @endforeach
+
+                        @foreach($makes as $makee)
+                        <div class="modal fade" id="make{{$makee->id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="advandageLabel{{$makee->id}}" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                <div class="modal-header backgroundColor text-white" style="border:none">
+                                    <h5 class="modal-title" style="color: black" id="advandageLabel{{$makee->id}}">الصورة</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body backgroundColorSec p-5">
+                                    <img width="400" height="400" src="{{asset('assets/images/makes')}}/{{$makee->image}}">
+                                </div>
+                                
+                                </div>
+                            </div>
+                        </div>
                         @endforeach
                     </tbody>
                 </table>

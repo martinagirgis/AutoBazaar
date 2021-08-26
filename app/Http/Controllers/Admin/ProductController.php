@@ -92,6 +92,7 @@ class ProductController extends Controller
             'description' => $request->description,
             'user_id' => $request->user_id,
             'images' => $images,
+            'price' => $request->price,
         ]);
         return redirect()->route('products.index')->with('success', 'The product has created successfully.');
     }
@@ -181,6 +182,7 @@ class ProductController extends Controller
             'product_type' => $request->product_type,
             'user_id' => $request->user_id,
             'images' => $images,
+            'price' => $request->price,
         ]);
         return redirect()->route('products.index')->with('success', 'The product has updated successfully.');
     }

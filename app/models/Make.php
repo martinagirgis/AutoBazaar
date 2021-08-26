@@ -13,6 +13,7 @@ class Make extends Model
         'Title_en',
         'Title_ku',
         'sell_type_id',
+        'image',
     ];
 
     public function sellType()

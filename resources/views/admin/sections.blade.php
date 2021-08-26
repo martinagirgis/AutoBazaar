@@ -50,6 +50,17 @@
         <li>
             <a href="javascript: void(0);" class="has-arrow">
                 <i class="fas fa-exclamation-triangle"></i>
+                <span> منتجات المولدات الكهربائية </span>
+            </a>
+            <ul class="sub-menu" aria-expanded="false">
+                <li><a href="{{route("generators.index")}}">عرض الكل</a></li>
+                <li><a href="{{route("generators.create")}}">اضافة منتج جديد</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript: void(0);" class="has-arrow">
+                <i class="fas fa-exclamation-triangle"></i>
                 <span>منتجات القطع </span>
             </a>
             <ul class="sub-menu" aria-expanded="false">
