@@ -63,20 +63,19 @@ class generatorsController extends Controller
             'status_id' => $request->status_id,
             'fuel_type_id' => $request->fuel_type_id,
             'country' => $request->country,
-            'work_hour' => $request->work_hour,
-            'color' => $request->color,
-            'payment_method' => $request->payment_method,
-            'city_id' => $request->city_id,
-            'district_id' => $request->district_id,
-            'advandage_id' => $advandages,
-            'interior_brush' => $request->interior_brush,
-            'interior_color' => $request->interior_color,
+            'ability' => $request->ability,
+            'capacity' => $request->capacity,
+            'fuel_tank_size' => $request->fuel_tank_size,
+            'engine_type' => $request->engine_type,
+            'number_of_phase' => $request->number_of_phase,
+            'frequency_rate' => $request->frequency_rate,
+            'muffler_box' => $request->muffler_box,
             'description' => $request->description,
             'user_id' => $request->user_id,
             'images' => $images,
             'price' => $request->price,
         ]);
-        return redirect()->route('products.index')->with('success', 'The product has created successfully.');
+        return redirect()->route('generators.index')->with('success', 'The product has created successfully.');
     }
 
     /**
@@ -87,7 +86,8 @@ class generatorsController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Generator::find($id);
+        return view('admin.generators.show', compact('product'));
     }
 
     /**
@@ -98,8 +98,14 @@ class generatorsController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+        $sellTypes = SellType::where('category_id', 4)->get();
+        $makes = Make::get();
+        $users = User::get();
+        $statuses = Status::get();
+        $fuels = FuelType::get();
+        $product = Generator::find($id);
+        return view('admin.generators.edit', compact('fuels', 'sellTypes', 'makes', 'users', 'statuses'));
+    } 
 
     /**
      * Update the specified resource in storage.
@@ -110,7 +116,42 @@ class generatorsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Generator::find($id);
+
+        if ($request->images) {
+            $x = [];
+            for ($i = 0; $i < count($request->images); $i++) {
+                $imageName = time() .  $i . '.' . $request->images[$i]->getClientOriginalExtension();
+                $x[$i] = $imageName;
+                $request->images[$i]->move(public_path('assets/images/products'), $imageName);
+            }
+            $images = implode('|', $x);
+        }
+        else{
+            $images = $product->images;
+        }
+
+        $product->update([
+            'category_id' => $request->category_id,
+            'sell_type_id' => $request->sell_type_id,
+            'make_id' => $request->make_id,
+            'model' => $request->model,
+            'status_id' => $request->status_id,
+            'fuel_type_id' => $request->fuel_type_id,
+            'country' => $request->country,
+            'ability' => $request->ability,
+            'capacity' => $request->capacity,
+            'fuel_tank_size' => $request->fuel_tank_size,
+            'engine_type' => $request->engine_type,
+            'number_of_phase' => $request->number_of_phase,
+            'frequency_rate' => $request->frequency_rate,
+            'muffler_box' => $request->muffler_box,
+            'description' => $request->description,
+            'user_id' => $request->user_id,
+            'images' => $images,
+            'price' => $request->price,
+        ]);
+        return redirect()->route('generators.index')->with('success', 'The product has updated successfully.');
     }
 
     /**
@@ -121,6 +162,17 @@ class generatorsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $old = Generator::find($id);
+        $old->delete();
+        return redirect()->route('generators.index')->with('success', 'Deleted successfully');
+    }
+
+    public function getSections(Request $request)
+    {
+        $makes = Make::where('sell_type_id', $request->sellTypeId)->get();
+        
+        return response()->json([
+            'makes' => $makes,
+        ]);
     }
 }

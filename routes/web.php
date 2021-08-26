@@ -90,6 +90,7 @@ Route::resource('spareParts','Admin\sparePartsController'); //2 done
 Route::resource('generators','Admin\generatorsController'); //2 done
 
 Route::get('/spareParts/getSections', 'Admin\sparePartsController@getSections');
+Route::get('/generators/getSections', 'Admin\ProductController@getSections');
 
 Route::get('/getSections', 'Admin\ProductController@getSections');
 Route::get('/getSectionstest', 'Admin\ProductController@getSectionstest');
